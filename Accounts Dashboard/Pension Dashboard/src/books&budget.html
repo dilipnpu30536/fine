@@ -1,0 +1,496 @@
+
+   
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Books & Budget</title>
+    <link rel="stylesheet" href="assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/css/demo_1/responsive.css">
+    <link rel="stylesheet" href="assets/css/shared/style.css"> 
+    <link rel="stylesheet" href="assets/css/demo_1/style.css">
+    <link rel="stylesheet" href="script5.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include SheetJS library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script> -->
+
+<!-- new code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+   <!-- Load Chart.js -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+
+   <!-- Load PapaParse to read csv files -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <style>
+      
+         #chart-container1 {
+        width: 200px;
+        margin: 20px auto;
+    }
+    #chart2 {
+        width: 50%;
+        height: 100px;
+    }
+        #chart-container {
+        width: 100px;
+        margin: 20px auto;
+    }
+    #chart {
+        width: 50%;
+        height: 100px;
+    }
+      
+      #container {
+          width: 100px;
+          margin: 0 auto;
+      }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+    }
+  
+
+
+
+            table, th, td {
+                border: 1px solid black;
+            }
+      
+
+
+  </style>
+
+<!-- new code -->
+<style>
+  table, tr, td, th{
+   border: 1px solid lightblue;
+   border-collapse: collapse;
+
+  }
+     tr {
+         background-color: #F0FFFF;
+     }
+     /* This CSS selector sets the background color of every other row to light gray. */
+     tr:nth-child(2n) {
+         background-color: F0FFFF;
+     }
+   .para{
+    
+    text-align:center;
+    
+   }
+
+ </style>
+
+
+
+<!-- new code -->
+
+
+
+<link rel="stylesheet" href="style5.css">
+
+
+
+    <!-- plugins:css -->
+  <link rel="stylesheet" href="assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assets/css/shared/style.css">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="assets/css/demo_1/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+    <!-- Load Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+
+    <!-- Load PapaParse to read csv files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+
+
+<img src="Bikaner junction.jpeg" alt="" width="940" height="200">
+<img src="DRM OFFICE BKN.jpeg" alt="" width="950" height="200">
+  </head>
+  <body>
+</body>
+<div class="container-fluid page-body-wrapper">
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      <li class="nav-item nav-profile">
+        <!-- <a href="#" class="nav-link"> -->
+          <div class="profile-image">
+            <!-- <img class="img-xs rounded-circle" src="Indian_Railway_Logo_2.png" alt="">
+            <div class="dot-indicator bg-success"></div> -->
+          </div>
+        </a>
+      </li>
+      
+      <!-- <li class="nav-item nav-category">Main Menu</li> -->
+      <li class="nav-item">
+      
+        <a class="nav-link" href="index.html">
+          <i class="menu-icon typcn typcn-document-text"></i>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+
+
+
+
+      <li class="nav-item">
+        <a href="administration.html" class="nav-link" >
+          <i class="menu-icon typcn typcn-coffee"></i>
+          <span class="menu-title">Administrations</span>
+          <!-- <i class="menu-arrow"></i> -->
+        </a>
+        <div class="collapse" id="ui-basic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Cadre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="basic_elements.html">Redressal System</a>
+            </li>
+      
+          
+          </ul>
+        </div>
+      </li>
+
+
+
+
+
+
+
+
+
+
+      <li class="nav-item">
+        <a href="audit&efficiency.html"class="nav-link" >
+          <i class="menu-icon typcn typcn-coffee"></i>
+          <span class="menu-title">Audit & Efficiency</span>
+          <!-- <i class="menu-arrow"></i> -->
+        </a>
+        <div class="collapse" id="ui-basic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="MPR.html">MPR</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pcdo.html">PCDO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://onedrive.live.com/view.aspx?resid=2D9AAB0E18FC1FEB!128&ithint=file%2cpptx&wdo=2&authkey=!ACIafPy3yuEQSF0">PPT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://1drv.ms/w/s!Ausf_BgOq5otbJ0NnI8TS6NL99o?e=XpYaQT">WORD</a>
+            </li>
+           
+          </ul>
+        </div>
+      </li>
+      
+      <li class="nav-item">
+          <a href="books&budget.html" class="nav-link">
+            <i class="menu-icon typcn typcn-coffee"></i>
+            <span class="menu-title">Books & Budget</span>
+            <!-- <i class="menu-arrow"></i> -->
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="planHead.html">Plan Head</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="planHead.html">Controllable Pus</a>
+              </li>
+              
+             
+            </ul>
+          </div>
+        </li>
+        
+
+
+      <li class="nav-item">
+          <a class="nav-link" href="expenditure.html">
+            <i class="menu-icon typcn typcn-bell"></i>
+            <span class="menu-title">Expenditure</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Establishment.html">
+            <i class="menu-icon typcn typcn-bell"></i>
+            <span class="menu-title">Establishment</span>
+          </a>
+        </li>
+      <li class="nav-item">
+        <a href="finance.html" class="nav-link" >
+          <i class="menu-icon typcn typcn-coffee"></i>
+          <span class="menu-title">Finance</span>
+          
+          <!-- <i class="menu-arrow"></i> -->
+        </a>
+        <!-- <div class="collapse" id="ui-basic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Estimate Proposal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="basic_elements.html">Other Proposals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Regrant_Cases.html">Variation</a>
+            </li>
+           
+          
+          </ul>
+        </div> -->
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="dilip.html">
+            <i class="menu-icon typcn typcn-bell"></i>
+            <span class="menu-title">NPS</span>
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="pension1.html" class="nav-link">
+            <i class="menu-icon typcn typcn-coffee"></i>
+            <span class="menu-title">Pension</span>
+            
+            <!-- <i class="menu-arrow"></i> -->
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Normal Retirement</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="basic_elements.html">ONR Cases</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Regrant_Cases.html">Regrant Cases</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Revision_cpc.html">Revision-cpc</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Nps_Cases.html">NPS Cases(Death)</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="pension.html">Pension suspense</a>
+              </li>
+            
+            </ul>
+          </div>
+        </li>
+
+
+
+    
+    
+      
+
+      <li class="nav-item">
+        <a class="nav-link" href="">
+          <i class="menu-icon typcn typcn-bell"></i>
+          <span class="menu-title">Provident fund</span>
+        </a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="record.html">
+          <i class="menu-icon typcn typcn-bell"></i>
+          <span class="menu-title">Record</span>
+        </a>
+      </li>
+
+
+  
+
+     
+      <li class="nav-item">
+        <a class="nav-link" href="stk.html">
+          <i class="menu-icon typcn typcn-bell"></i>
+          <span class="menu-title">Store Verification</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="audit.html">
+          <i class="menu-icon typcn typcn-bell"></i>
+          <span class="menu-title">Miscellaneous</span>
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+  
+
+
+
+<div style="max-width: 800px; margin: 20px auto;padding-top: -30px;margin-top: -782px;">
+  <canvas id="myChart" width="600" height="400" style="background-color: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></canvas>
+</div>
+
+<script>
+  // Replace 'PUS.xlsx' with the path to your Excel file
+  const excelFilePath = 'PUS.xlsx';
+
+  // Function to read Excel file and create chart
+  const renderChart = () => {
+      // Read Excel file
+      const reader = new FileReader();
+      reader.onload = (e) => {
+          // Convert file data to array buffer
+          const data = new Uint8Array(e.target.result);
+          // Read Excel file as workbook
+          const workbook = XLSX.read(data, { type: 'array' });
+          // Extract first sheet name
+          const sheetName = workbook.SheetNames[0];
+          // Get sheet data
+          const sheet = workbook.Sheets[sheetName];
+          // Convert sheet data to JSON
+          const jsonData = XLSX.utils.sheet_to_json(sheet);
+
+          // Extract months and PUs from JSON data
+          const months = Object.keys(jsonData[0]).filter(key => key !== 'Month');
+          const PUs = months.map(month => jsonData.map(obj => obj[month]));
+
+          // Create chart
+          const ctx = document.getElementById('myChart').getContext('2d');
+          new Chart(ctx, {
+              type: 'line',
+              data: {
+                  labels: jsonData.map(obj => obj.Month),
+                  datasets: PUs.map((PU, index) => ({
+                      label: `PU ${index + 1}`,
+                      data: PU,
+                      fill: false,
+                      borderColor: `hsl(${index * (360 / PUs.length)}, 70%, 50%)`,
+                      borderWidth: 3,
+                      pointRadius: 5,
+                      pointBackgroundColor: '#fff',
+                      pointBorderColor: `hsl(${index * (360 / PUs.length)}, 70%, 50%)`,
+                      pointBorderWidth: 2
+                  }))
+              },
+              options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  title: {
+                      display: true,
+                      text: 'Production Units Over Months',
+                      fontSize: 20,
+                      fontColor: '#333'
+                  },
+                  legend: {
+                      display: true,
+                      labels: {
+                          fontColor: '#333'
+                      }
+                  },
+                  scales: {
+                      xAxes: [{
+                          scaleLabel: {
+                              display: true,
+                              labelString: 'Months',
+                              fontSize: 16,
+                              fontColor: '#333'
+                          },
+                          ticks: {
+                              fontColor: '#333'
+                          }
+                      }],
+                      yAxes: [{
+                          scaleLabel: {
+                              display: true,
+                              labelString: 'PU (Production Units)',
+                              fontSize: 16,
+                              fontColor: '#333'
+                          },
+                          ticks: {
+                              fontColor: '#333'
+                          }
+                      }]
+                  }
+              }
+          });
+      };
+      // Fetch the Excel file
+      fetch(excelFilePath)
+          .then(response => response.blob())
+          .then(blob => reader.readAsArrayBuffer(blob));
+  };
+
+  renderChart();
+</script>
+
+
+
+
+
+
+
+
+
+    </body>
+   
+</html>
+    

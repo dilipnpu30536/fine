@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Data Dual Bar Graph</title>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <!-- XLSX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/demo_1/responsive.css">
+    <link rel="stylesheet" href="assets/css/shared/style.css"> 
+    <link rel="stylesheet" href="assets/css/demo_1/style.css">
+    <link rel="stylesheet" href="script5.css">
+    <style>
+        /* Custom styles for enhanced appearance */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-fluid {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #343a40;
+            transition: width 0.3s ease;
+        }
+
+        .sidebar-open #sidebar {
+            width: 0;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .nav {
+            padding-top: 20px;
+            list-style-type: none;
+        }
+
+        .nav-item {
+            margin-bottom: 10px;
+        }
+
+        .nav-link {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .nav-link:hover {
+            background-color: #495057;
+        }
+
+        .menu-icon {
+            margin-right: 10px;
+        }
+
+        h4 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        #myBarChart {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <img src="Bikaner junction.jpeg" alt="" width="940" height="200">
+    <img src="DRM OFFICE BKN.jpeg" alt="" width="950" height="200">
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar" style="margin-left:-13px">
+            <ul class="nav">
+                <li class="nav-item nav-profile">
+                    <!-- <a href="#" class="nav-link"> -->
+                    <div class="profile-image">
+                    </div>
+                    <!-- </a> -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="menu-icon typcn typcn-document-text"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="administration.html" class="nav-link" >
+                        <i class="menu-icon typcn typcn-coffee"></i>
+                        <span class="menu-title">Administrations</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="audit&efficiency.html"class="nav-link" >
+                        <i class="menu-icon typcn typcn-coffee"></i>
+                        <span class="menu-title">Audit & Efficiency</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="books&budget.html" class="nav-link">
+                        <i class="menu-icon typcn typcn-coffee"></i>
+                        <span class="menu-title">Books & Budget</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="expenditure.html">
+                        <i class="menu-icon typcn typcn-bell"></i>
+                        <span class="menu-title">Expenditure</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Establishment.html">
+                        <i class="menu-icon typcn typcn-bell"></i>
+                        <span class="menu-title">Establishment</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="finance.html" class="nav-link" >
+                        <i class="menu-icon typcn typcn-coffee"></i>
+                        <span class="menu-title">Finance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dilip.html">
+                        <i class="menu-icon typcn typcn-bell"></i>
+                        <span class="menu-title">NPS</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pension1.html" class="nav-link">
+                        <i class="menu-icon typcn typcn-coffee"></i>
+                        <span class="menu-title">Pension</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <i class="menu-icon typcn typcn-bell"></i>
+                        <span class="menu-title">Provident fund</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="record.html">
+                        <i class="menu-icon typcn typcn-bell"></i>
+                        <span class="menu-title">Record</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stk.html">
+                        <i class="menu-icon typcn typcn-bell"></i>
+                        <span class="menu-title">Store Verification</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="audit.html">
+                        <i class="menu-icon typcn typcn-bell"></i>
+                        <span class="menu-title">Miscellaneous</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <a href="stock_sheet_file.html">Stock Verification & stock sheet</a>
+            
+            <canvas id="myBarChart" width="696" height="696"></canvas>
+
+            <script>
+                const fetchData = async () => {
+                    const response = await fetch('./Depart.xlsx');
+                    const arrayBuffer = await response.arrayBuffer();
+                    const data = new Uint8Array(arrayBuffer);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const sheetName = workbook.SheetNames[0];
+                    const sheet = workbook.Sheets[sheetName];
+                    const excelData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+                    return excelData;
+                };
+
+                fetchData().then((excelData) => {
+                    const labels = excelData[0].slice(1);
+                    const datasets = excelData.slice(1).map((row, index) => ({
+                        label: row[0],
+                        data: row.slice(1).map(Number),
+                        backgroundColor: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.2)`,
+                        borderColor: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 1)`,
+                        borderWidth: 1,
+                    }));
+
+                    const ctx = document.getElementById('myBarChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels,
+                            datasets,
+                        },
+                        options: {
+                            title: {
+                                display:true,
+                                text:"Stock Verification & Stock Sheet"
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                },
+                            },
+                        },
+                    });
+                });
+            </script>
+
+        
+        </div>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        document.addEventListener('click', function (event) {
+            const isClickInside = sidebar.contains(event.target);
+            if (!isClickInside) {
+                sidebar.classList.toggle('sidebar-open');
+            }
+        });
+    </script>
+</body>
+</html>

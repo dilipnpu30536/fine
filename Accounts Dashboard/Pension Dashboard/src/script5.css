@@ -1,0 +1,99 @@
+*{
+    
+    box-sizing: border-box;
+}
+
+
+
+body{
+  font-family: verdan,sans-serif;
+}
+.mySlides{
+    display: none;
+}
+img{
+    vertical-align: middle;
+}
+.slideshow-container{
+    max-width: 80%;
+    position: relative;
+    margin: auto;
+}
+.prev, .next{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+.next{
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover{
+    background-color: rgba(0, 0,0,0.8);
+}
+.text{
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 8px;
+}
+.numbertext{
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+.marquee {
+  width: 450px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.marquee span {
+  display: inline-block;
+  width: max-content;
+
+  padding-left: 100%;
+  /* show the marquee just outside the paragraph */
+  will-change: transform;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee span:hover {
+  animation-play-state: paused
+}
+
+
+@keyframes marquee {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}
+
+
+/* Respect user preferences about animations */
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee span {
+    animation-iteration-count: 1;
+    animation-duration: 0.01; 
+    /* instead of animation: none, so an animationend event is 
+     * still available, if previously attached.
+     */
+    width: auto;
+    padding-left: 0;
+  }
+}

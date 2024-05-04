@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Audit & Efficiency</title>
+    <!-- External CSS Stylesheets -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/css/demo_1/responsive.css">
+    <link rel="stylesheet" href="assets/css/shared/style.css"> 
+    <link rel="stylesheet" href="assets/css/demo_1/style.css">
+    <link rel="stylesheet" href="style5.css">
+    <link rel="stylesheet" href="script5.css">
+    <!-- External JavaScript Imports -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    
+
+   <!-- Load PapaParse to read csv files -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+    <!-- Load Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+
+    <!-- Load PapaParse to read csv files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+
+
+<img src="Bikaner junction.jpeg" alt="" width="940" height="200">
+<img src="DRM OFFICE BKN.jpeg" alt="" width="950" height="200">
+
+</div>
+
+    <!-- Internal CSS Styling -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+            height: 100vh;
+        }
+        h4 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #555;
+        }
+        #myStackedBarChart {
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 800px;
+            height: 497px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        table {
+            border-collapse: collapse;
+            width: 20%;
+            margin: 20px auto;
+            margin-bottom: 20px;
+            margin-left: 82px;
+            background-color: #fff; /* Table background color */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+        }
+        th, td {
+            border: 1px solid #ced4da; /* Border color */
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff; /* Header background color */
+            color: #fff; /* Header text color */
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Alternate row background color */
+        }
+        /* body {
+            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            margin: 0;
+            padding: 0;
+        } */
+        #myChart {
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%; /* Adjust this value as needed */
+            max-width: 400px; /* Limiting maximum width */
+            height: 25vh;
+            border-radius: 10px;
+        }
+        #myChart2 {
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%; /* Adjust this value as needed */
+            max-width: 400px; /* Limiting maximum width */
+            height: 25vh;
+            border-radius: 10px;
+        }
+    </style>
+ 
+</head>
+<h5 style="margin-left: 1168px;margin-top: 36px;padding-top: 0px;padding-bottom: 17px;">Field inspection upto the month</h5>
+<h5 style="margin-left: 1619px;margin-top: -49px;margin-bottom: 8px;padding-bottom: 0px;">Test Check upto the month</h5>
+<body>
+
+    <div class="container-fluid page-body-wrapper">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar" style="padding-top: 0px;margin-top: -60px;">
+            <ul class="nav">
+              <li class="nav-item nav-profile">
+                <!-- <a href="#" class="nav-link"> -->
+                  <div class="profile-image">
+                    <!-- <img class="img-xs rounded-circle" src="Indian_Railway_Logo_2.png" alt="">
+                    <div class="dot-indicator bg-success"></div> -->
+                  </div>
+                </a>
+              </li>
+              
+              <!-- <li class="nav-item nav-category">Main Menu</li> -->
+              <li class="nav-item">
+              
+                <a class="nav-link" href="index.html">
+                  <i class="menu-icon typcn typcn-document-text"></i>
+                  <span class="menu-title">Dashboard</span>
+                </a>
+              </li>
+    
+    
+    
+    
+              <li class="nav-item">
+                <a href="administration.html" class="nav-link" >
+                  <i class="menu-icon typcn typcn-coffee"></i>
+                  <span class="menu-title">Administrations</span>
+                  <!-- <i class="menu-arrow"></i> -->
+                </a>
+                <div class="collapse" id="ui-basic">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="index.html">Cadre</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="basic_elements.html">Redressal System</a>
+                    </li>
+              
+                  
+                  </ul>
+                </div>
+              </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+              <li class="nav-item">
+                <a href="audit&efficiency.html"class="nav-link" >
+                  <i class="menu-icon typcn typcn-coffee"></i>
+                  <span class="menu-title">Audit & Efficiency</span>
+                  <!-- <i class="menu-arrow"></i> -->
+                </a>
+                <div class="collapse" id="ui-basic">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="MPR.html">MPR</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="pcdo.html">PCDO</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="https://onedrive.live.com/view.aspx?resid=2D9AAB0E18FC1FEB!128&ithint=file%2cpptx&wdo=2&authkey=!ACIafPy3yuEQSF0">PPT</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="https://1drv.ms/w/s!Ausf_BgOq5otbJ0NnI8TS6NL99o?e=XpYaQT">WORD</a>
+                    </li>
+                   
+                  </ul>
+                </div>
+              </li>
+              
+              <li class="nav-item">
+                  <a href="books&budget.html" class="nav-link">
+                    <i class="menu-icon typcn typcn-coffee"></i>
+                    <span class="menu-title">Books & Budget</span>
+                    <!-- <i class="menu-arrow"></i> -->
+                  </a>
+                  <div class="collapse" id="ui-basic">
+                    <ul class="nav flex-column sub-menu">
+                      <li class="nav-item">
+                        <a class="nav-link" href="planHead.html">Plan Head</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="planHead.html">Controllable Pus</a>
+                      </li>
+                      
+                     
+                    </ul>
+                  </div>
+                </li>
+                
+    
+    
+              <li class="nav-item">
+                  <a class="nav-link" href="expenditure.html">
+                    <i class="menu-icon typcn typcn-bell"></i>
+                    <span class="menu-title">Expenditure</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Establishment.html">
+                    <i class="menu-icon typcn typcn-bell"></i>
+                    <span class="menu-title">Establishment</span>
+                  </a>
+                </li>
+              <li class="nav-item">
+                <a href="finance.html" class="nav-link" >
+                  <i class="menu-icon typcn typcn-coffee"></i>
+                  <span class="menu-title">Finance</span>
+                  
+                  <!-- <i class="menu-arrow"></i> -->
+                </a>
+                <!-- <div class="collapse" id="ui-basic">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="index.html">Estimate Proposal</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="basic_elements.html">Other Proposals</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="Regrant_Cases.html">Variation</a>
+                    </li>
+                   
+                  
+                  </ul>
+                </div> -->
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="dilip.html">
+                    <i class="menu-icon typcn typcn-bell"></i>
+                    <span class="menu-title">NPS</span>
+                  </a>
+                </li>
+    
+    
+                <li class="nav-item">
+                  <a href="pension1.html" class="nav-link">
+                    <i class="menu-icon typcn typcn-coffee"></i>
+                    <span class="menu-title">Pension</span>
+                    
+                    <!-- <i class="menu-arrow"></i> -->
+                  </a>
+                  <div class="collapse" id="ui-basic">
+                    <ul class="nav flex-column sub-menu">
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.html">Normal Retirement</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="basic_elements.html">ONR Cases</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="Regrant_Cases.html">Regrant Cases</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="Revision_cpc.html">Revision-cpc</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="Nps_Cases.html">NPS Cases(Death)</a>
+                      </li>
+    
+                      <li class="nav-item">
+                        <a class="nav-link" href="pension.html">Pension suspense</a>
+                      </li>
+                    
+                    </ul>
+                  </div>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">
+                  <i class="menu-icon typcn typcn-bell"></i>
+                  <span class="menu-title">Provident fund</span>
+                </a>
+              </li>
+    
+    
+              <li class="nav-item">
+                <a class="nav-link" href="record.html">
+                  <i class="menu-icon typcn typcn-bell"></i>
+                  <span class="menu-title">Record</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="stk.html">
+                  <i class="menu-icon typcn typcn-bell"></i>
+                  <span class="menu-title">Store Verification</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="audit.html">
+                  <i class="menu-icon typcn typcn-bell"></i>
+                  <span class="menu-title">Miscellaneous</span>
+                </a>
+              </li>
+              
+            </ul>
+          </nav>
+    
+
+
+
+    <!-- <h4>Audit Data</h4> -->
+    <canvas id="myStackedBarChart" margin-bottom:2500px="" style="display: block;padding-left: -62px;padding-right: 6px;margin-right: -51px;margin-left: 13px;" width="800" height="400px"></canvas>
+    <div class="table-container">
+        <table class="table"></table>
+    </div>
+    <!-- <div class="button-container">
+        <a class="button" href="AuditData.html">Audit & Field Inspection Details</a>
+    </div> -->
+    <script>
+        // JavaScript code for generating chart and table
+        const fetchData1 = async () => {
+            const response = await fetch('./Depart1.xlsx');
+            const arrayBuffer = await response.arrayBuffer();
+            const data = new Uint8Array(arrayBuffer);
+            const workbook = XLSX.read(data, { type: 'array' });
+            const sheetName = workbook.SheetNames[0]; // Assuming data is in the first sheet
+            const sheet = workbook.Sheets[sheetName];
+            const excelData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+            return excelData;
+        };
+
+        fetchData1().then((excelData) => {
+            const labels = excelData[0].slice(1); // Assuming the first row contains labels for the X-axis
+            const datasets = excelData.slice(1).map((row, index) => ({
+                label: row[0], // Assuming the first column contains labels for each dataset
+                data: row.slice(1).map(Number),
+                backgroundColor: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.7)`,
+                borderWidth: 1,
+            }));
+
+            const ctx = document.getElementById('myStackedBarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets,
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "Audit Data"
+                    },
+                    scales: {
+                        x: {
+                            stacked: true,
+                        },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                        },
+                    },
+                },
+            });
+        });
+    </script>
+    <canvas id="myChart" class="chartjs-render-monitor" style="display: block; width: 400px; height: 884px;margin-top: 0px;padding-top: 0px;margin-bottom: 0px;padding-bottom: 297px;" width="400" height="884"></canvas>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch Excel data
+            fetch('./FIELD INSPECTION.xlsx')
+                .then(response => response.arrayBuffer())
+                .then(data => {
+                    // Parse Excel data
+                    const workbook = XLSX.read(new Uint8Array(data), { type: 'array' });
+                    const sheetName = workbook.SheetNames[0];
+                    const sheet = workbook.Sheets[sheetName];
+                    const range = XLSX.utils.decode_range(sheet['!ref']);
+
+                    const yearsData = {};
+
+                    for (let i = range.s.r + 1; i <= range.e.r; i++) {
+                        const cellOfficer = sheet[XLSX.utils.encode_cell({ r: i, c: 0 })].w;
+                        const cellDue = sheet[XLSX.utils.encode_cell({ r: i, c: 1 })].v;
+                        const cellDone = sheet[XLSX.utils.encode_cell({ r: i, c: 2 })].v;
+
+                        if (!yearsData[cellOfficer]) {
+                            yearsData[cellOfficer] = { due: 0, done: 0 };
+                        }
+
+                        yearsData[cellOfficer].due += cellDue;
+                        yearsData[cellOfficer].done += cellDone;
+                    }
+
+                    const ctx = document.getElementById('myChart').getContext('2d');
+                    const myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: Object.keys(yearsData),
+                            datasets: [
+                                {
+                                    label: 'Due',
+                                    data: Object.values(yearsData).map(item => item.due),
+                                    backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                                    borderColor: 'rgba(255, 99, 132, 1)',
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Done',
+                                    data: Object.values(yearsData).map(item => item.done),
+                                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            aspectRatio: 2,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'FIELD INSPECTIONS',
+                                    position: 'top',
+                                    font: {
+                                        size: 24,
+                                        family: 'Segoe UI',
+                                        weight: 'bold'
+                                    },
+                                    padding: {
+                                        top: 20,
+                                        bottom: 20
+                                    },
+                                    color: '#333'
+                                },
+                                legend: {
+                                    labels: {
+                                        font: {
+                                            size: 16,
+                                            family: 'Segoe UI'
+                                        },
+                                        padding: 20
+                                    }
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (context) {
+                                            let label = context.dataset.label || '';
+                                            if (label) {
+                                                label += ': ';
+                                            }
+                                            label += context.parsed.y;
+                                            return label;
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    ticks: {
+                                        autoSkip: false,
+                                        maxRotation: 45,
+                                        minRotation: 45,
+                                        font: {
+                                            family: 'Segoe UI',
+                                            size: 14,
+                                            weight: 'bold'
+                                        }
+                                    },
+                                    grid: {
+                                        display: false
+                                    }
+                                },
+                                y: {
+                                    beginAtZero: true,
+                                    grid: {
+                                        color: 'rgba(0, 0, 0, 0.1)'
+                                    },
+                                    ticks: {
+                                        font: {
+                                            family: 'Segoe UI',
+                                            size: 14,
+                                            weight: 'bold'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching Excel file:', error));
+        });
+    </script>
+    
+
+<div>    <canvas id="myChart2" class="chartjs-render-monitor" style="display: block; width: 400px; height: 586px;" width="400" height="884"></canvas>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch Excel data
+            fetch('./Test checks.xlsx')
+                .then(response => response.arrayBuffer())
+                .then(data => {
+                    // Parse Excel data
+                    const workbook = XLSX.read(new Uint8Array(data), { type: 'array' });
+                    const sheetName = workbook.SheetNames[0];
+                    const sheet = workbook.Sheets[sheetName];
+                    const range = XLSX.utils.decode_range(sheet['!ref']);
+
+                    const yearsData = {};
+
+                    for (let i = range.s.r + 1; i <= range.e.r; i++) {
+                        const cellOfficer = sheet[XLSX.utils.encode_cell({ r: i, c: 0 })].w;
+                        const cellDue = sheet[XLSX.utils.encode_cell({ r: i, c: 1 })].v;
+                        const cellDone = sheet[XLSX.utils.encode_cell({ r: i, c: 2 })].v;
+
+                        if (!yearsData[cellOfficer]) {
+                            yearsData[cellOfficer] = { due: 0, done: 0 };
+                        }
+
+                        yearsData[cellOfficer].due += cellDue;
+                        yearsData[cellOfficer].done += cellDone;
+                    }
+
+                    const ctx2 = document.getElementById('myChart2').getContext('2d');
+                    const myChart2 = new Chart(ctx2, {
+                        type: 'bar',
+                        data: {
+                            labels: Object.keys(yearsData),
+                            datasets: [
+                                {
+                                    label: 'Due',
+                                    data: Object.values(yearsData).map(item => item.due),
+                                    backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                                    borderColor: 'rgba(255, 99, 132, 1)',
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Done',
+                                    data: Object.values(yearsData).map(item => item.done),
+                                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            aspectRatio: 2,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'FIELD INSPECTIONS',
+                                    position: 'top',
+                                    font: {
+                                        size: 24,
+                                        family: 'Segoe UI',
+                                        weight: 'bold'
+                                    },
+                                    padding: {
+                                        top: 20,
+                                        bottom: 20
+                                    },
+                                    color: '#333'
+                                },
+                                legend: {
+                                    labels: {
+                                        font: {
+                                            size: 16,
+                                            family: 'Segoe UI'
+                                        },
+                                        padding: 20
+                                    }
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (context) {
+                                            let label = context.dataset.label || '';
+                                            if (label) {
+                                                label += ': ';
+                                            }
+                                            label += context.parsed.y;
+                                            return label;
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    ticks: {
+                                        autoSkip: false,
+                                        maxRotation: 45,
+                                        minRotation: 45,
+                                        font: {
+                                            family: 'Segoe UI',
+                                            size: 14,
+                                            weight: 'bold'
+                                        }
+                                    },
+                                    grid: {
+                                        display: false
+                                    }
+                                },
+                                y: {
+                                    beginAtZero: true,
+                                    grid: {
+                                        color: 'rgba(0, 0, 0, 0.1)'
+                                    },
+                                    ticks: {
+                                        font: {
+                                            family: 'Segoe UI',
+                                            size: 14,
+                                            weight: 'bold'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching Excel file:', error));
+        });
+    </script>
+    </div>
+
+</body>
+</html>

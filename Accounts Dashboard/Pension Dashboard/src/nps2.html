@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pension Dashboard</title>
+    <link rel="stylesheet" href="assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/css/demo_1/responsive.css">
+    <link rel="stylesheet" href="assets/css/shared/style.css"> 
+    <link rel="stylesheet" href="assets/css/demo_1/style.css">
+    <link rel="stylesheet" href="script5.css">
+    
+
+    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script> -->
+
+<!-- new code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+   <!-- Load Chart.js -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+
+   <!-- Load PapaParse to read csv files -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <style>
+      
+         #chart-container1 {
+        width: 600px;
+        margin: 20px auto;
+    }
+    #chart2 {
+        width: 100%;
+        height: 300px;
+    }
+        #chart-container {
+        width: 600px;
+        margin: 20px auto;
+    }
+    #chart {
+        width: 100%;
+        height: 300px;
+    }
+      
+      #container {
+          width: 600px;
+          margin: 0 auto;
+      }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+    }
+  
+
+
+
+            table, th, td {
+                border: 1px solid black;
+            }
+      
+
+
+  </style>
+
+<!-- new code -->
+<style>
+  table, tr, td, th{
+   border: 1px solid lightblue;
+   border-collapse: collapse;
+
+  }
+     tr {
+         background-color: #F0FFFF;
+     }
+     /* This CSS selector sets the background color of every other row to light gray. */
+     tr:nth-child(2n) {
+         background-color: F0FFFF;
+     }
+   .para{
+    
+    text-align:center;
+    
+   }
+
+ </style>
+
+
+
+<!-- new code -->
+
+
+
+<link rel="stylesheet" href="style5.css">
+
+
+
+    <!-- plugins:css -->
+  <link rel="stylesheet" href="assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assets/css/shared/style.css">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="assets/css/demo_1/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="" />
+  </head>
+<div class="col-md-10">
+    <div class="container">
+      <h4>NPS Data</h4>
+      <select id="year-select">
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <!-- <option value="2022">July-Sept</option>
+          <option value="2022">Oct-Dec</option> -->
+          <!-- Add more years as needed -->
+      </select>
+      <canvas id="myChart"></canvas>
+  </div>
+</div>
+
+
+  <script>
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const data = [
+          { date: '2023-01', Employees: 10 },
+          { date: '2023-02', Employees: 12 },
+         
+          { date: '2023-03', Employees: 20 },
+
+          { date: '2023-04', Employees: 20},
+          { date: '2023-05', Employees: 15 },
+          { date: '2023-06', Employees: 10 },
+          { date: '2023-07', Employees: 50 },
+          { date: '2023-08', Employees: 25 },
+          { date: '2023-09', Employees: 30 },
+          { date: '2023-10', Employees: 12 },
+          { date: '2023-11', Employees: 13 },
+          { date: '2023-12', Employees: 16 },
+         
+          { date: '2022-01', Employees: 21 },
+          { date: '2022-02', Employees: 20 },
+          { date: '2022-03', Employees: 26 },
+          { date: '2022-04', Employees: 25 },
+          { date: '2022-05', Employees: 22 },
+          { date: '2022-06', Employees: 27 },
+          { date: '2022-07', Employees: 25 },
+          { date: '2022-08', Employees: 22 },
+          { date: '2022-09', Employees: 26 },
+          { date: '2022-10', Employees: 25 },
+          { date: '2022-11', Employees: 22 },
+          { date: '2022-12', Employees: 27 },
+          // Add more months and data as needed
+      ];
+      const myChart = new Chart(ctx, {
+          type: 'bar', // Use 'bar' chart for multiple columns
+          data: {
+              labels: [],// An array of date labels
+              datasets: [
+                  {
+                      label: 'Employees',
+                      data: data.map(item => item.Employees),
+                      backgroundColor: 'rgba(224, 179, 127, 0.32)', // Customize as needed
+                  },
+                 
+              ],
+          },
+      });
+
+      function filterDataByYear(year) {
+          const filteredData = data.filter(item => item.date.startsWith(year));
+          const labels = filteredData.map(item => new Date(item.date).toLocaleString('default',{ month: 'short' }));
+          
+
+
+          
+          myChart.data.datasets[0].data = filteredData.map(item => item.Employees);
+          
+          myChart.data.labels = labels;
+          myChart.update();
+      }
+
+      const yearSelect = document.getElementById('year-select');
+      yearSelect.addEventListener('change', (event) => {
+          const selectedYear = event.target.value;
+          filterDataByYear(selectedYear);
+      });
+
+      // Initial data load
+      const initialYear = yearSelect.value;
+      filterDataByYear(initialYear);
+  </script>
+
+    <a href="nps1.html">Click here to view this file</a>
+    </html>

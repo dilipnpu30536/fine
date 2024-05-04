@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Sheets API Example</title>
+</head>
+<body>
+  <button onclick="getData()">Get Data</button>
+  <div id="output"></div>
+
+  <script>
+    // Function to fetch data from Google Sheet
+    async function getData() {
+      try {
+        const response = await fetch('https://sheets.googleapis.com/v4/spreadsheets/https://docs.google.com/spreadsheets/d/1JdNPl5MFAkyIR2JdpPU2_cDHftsixgg6/edit#gid=1653699817/values/Sheet1!A1:B5?key=YOUR_API_KEY');
+        const data = await response.json();
+        const values = data.values;
+        
+        // Display data
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = '<h2>Data from Google Sheet:</h2>';
+        if (values && values.length > 0) {
+          outputDiv.innerHTML += '<ul>';
+          values.forEach(row => {
+            outputDiv.innerHTML += `<li>${row.join(', ')}</li>`;
+          });
+          outputDiv.innerHTML += '</ul>';
+        } else {
+          outputDiv.innerHTML += '<p>No data found.</p>';
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = '<p>Error fetching data. Check console for details.</p>';
+      }
+    }
+  </script>
+</body>
+</html>

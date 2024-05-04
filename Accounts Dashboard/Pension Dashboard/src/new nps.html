@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPS Data</title>
+    <link rel="stylesheet" href="assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/css/demo_1/responsive.css">
+    <link rel="stylesheet" href="assets/css/shared/style.css">
+    <link rel="stylesheet" href="assets/css/demo_1/style.css">
+    <link rel="shortcut icon" href="" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <style>
+     table, tr, td, th{
+      border: 1px solid black;
+      border-collapse: collapse;
+     }
+        tr {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(2n) {
+            background-color: f2f2f2;
+        } 
+    </style>
+    
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+#chart-container {
+  width: 80%;
+  max-width: 880px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  overflow: hidden;
+}
+        canvas {
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        
+    </style>
+
+</head>
+<script>
+    function favTutorial() {
+    var mylist = document.getElementById("myList");
+    document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
+    }
+    </script>
+<body>
+  <div class="container-fluid page-body-wrapper">
+    <nav class="sidebar sidebar-offcanvas" id="sidebar" style="padding-left: 0px;padding-top: 454px;margin-top: 0px;">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+              <div class="profile-image">
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="menu-icon typcn typcn-document-text"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="administration.html" class="nav-link" >
+              <i class="menu-icon typcn typcn-coffee"></i>
+              <span class="menu-title">Administrations</span>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Cadre</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="basic_elements.html">Redressal System</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="audit&efficiency.html"class="nav-link" >
+              <i class="menu-icon typcn typcn-coffee"></i>
+              <span class="menu-title">Audit & Efficiency</span>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="MPR.html">MPR</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pcdo.html">PCDO</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://onedrive.live.com/view.aspx?resid=2D9AAB0E18FC1FEB!128&ithint=file%2cpptx&wdo=2&authkey=!ACIafPy3yuEQSF0">PPT</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://1drv.ms/w/s!Ausf_BgOq5otbJ0NnI8TS6NL99o?e=XpYaQT">WORD</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+              <a href="books&budget.html" class="nav-link">
+                <i class="menu-icon typcn typcn-coffee"></i>
+                <span class="menu-title">Books & Budget</span>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="planHead.html">Plan Head</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="planHead.html">Controllable Pus</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          <li class="nav-item">
+              <a class="nav-link" href="expenditure.html">
+                <i class="menu-icon typcn typcn-bell"></i>
+                <span class="menu-title">Expenditure</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Establishment.html">
+                <i class="menu-icon typcn typcn-bell"></i>
+                <span class="menu-title">Establishment</span>
+              </a>
+            </li>
+          <li class="nav-item">
+            <a href="finance.html" class="nav-link" >
+              <i class="menu-icon typcn typcn-coffee"></i>
+              <span class="menu-title">Finance</span>
+            </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="new nps.html">
+                <i class="menu-icon typcn typcn-bell"></i>
+                <span class="menu-title">NPS</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pension1.html" class="nav-link">
+                <i class="menu-icon typcn typcn-coffee"></i>
+                <span class="menu-title">Pension</span>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Normal Retirement</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="basic_elements.html">ONR Cases</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="Regrant_Cases.html">Regrant Cases</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="Revision_cpc.html">Revision-cpc</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="Nps_Cases.html">NPS Cases(Death)</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="pension.html">Pension suspense</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <i class="menu-icon typcn typcn-bell"></i>
+              <span class="menu-title">Provident fund</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="record.html">
+              <i class="menu-icon typcn typcn-bell"></i>
+              <span class="menu-title">Record</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="stockverification.html">
+              <i class="menu-icon typcn typcn-bell"></i>
+              <span class="menu-title">Store Verification</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="audit.html">
+              <i class="menu-icon typcn typcn-bell"></i>
+              <span class="menu-title">Miscellaneous</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+          <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="row page-title-header">
+                <div class="col-12">
+                  <div class="page-header">
+                    <h4 class="page-title">Dashboard</h4>
+                    <div class="quick-link-wrapper w-100 d-md-flex flex-md-wrap">
+                     </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="page-header-toolbar">
+                    <div class="btn-group toolbar-item" role="group" aria-label="Basic example">
+                    </div>
+                     </div>
+                   </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="col-md-12">
+                        <div class="container">
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                    </div>       
+    <canvas id="myChart"></canvas>
+    <script>
+        fetch('./data.xlsx')
+            .then(response => response.arrayBuffer())
+            .then(data => {
+                const workbook = XLSX.read(new Uint8Array(data), { type: 'array' });
+                const sheetName = workbook.SheetNames[0];
+                const sheet = workbook.Sheets[sheetName];
+                const range = XLSX.utils.decode_range(sheet['!ref']);
+                const months = [];
+                const croreData = [];
+                const thousand1 = [];
+                const thousand2 = [];
+                const thousand3 = [];
+                for (let i = range.s.r + 1; i <= range.e.r; i++) {
+                    const cellMonth = sheet[XLSX.utils.encode_cell({ r: i, c: 0 })];
+                    const cellCrore = sheet[XLSX.utils.encode_cell({ r: i, c: 1 })];
+                    const cellThousand1 = sheet[XLSX.utils.encode_cell({ r: i, c: 2 })];
+                    const cellThousand2 = sheet[XLSX.utils.encode_cell({ r: i, c: 3 })];
+                    const cellThousand3 = sheet[XLSX.utils.encode_cell({ r: i, c: 4 })];
+
+                    months.push(cellMonth.w);
+                    croreData.push(cellCrore.v);
+                    thousand1.push(cellThousand1.v);
+                    thousand2.push(cellThousand2.v);
+                    thousand3.push(cellThousand3.v);
+                }
+                const ctx = document.getElementById('myChart').getContext('2d');
+                const myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: months,
+                        datasets: [
+                            {
+                                label: 'Detail of upload during the month (Amount)',
+                                data: croreData,
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 2,
+                                pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                                fill: false,
+                                yAxisID: 'y-axis-1'
+                            },
+                            {
+                                label: 'No. of subscribers registered',
+                                data: thousand1,
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                borderWidth: 2,
+                                pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                                fill: false,
+                                yAxisID: 'y-axis-2'
+                            },
+                            {
+                                label: 'No. of subscribers whose NPS deduction has been made during the month',
+                                data: thousand2,
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 2,
+                                pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                                fill: false,
+                                yAxisID: 'y-axis-2'
+                            },
+                            {
+                                label: 'No. of subscribers whose NPS deduction has been uploaded on CRA-NPS during the month',
+                                data: thousand3,
+                                borderColor: 'rgba(255, 159, 64, 1)',
+                                borderWidth: 2,
+                                pointBackgroundColor: 'rgba(255, 159, 64, 1)',
+                                fill: false,
+                                yAxisID: 'y-axis-2'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        aspectRatio: 2,
+                        title: {
+                            display: true,
+                            text: 'Excel Data Dual Axis Line Graph',
+                            position: 'top',
+                            fontSize: 20,
+                            fontColor: '#333'
+                        },
+                        scales: {
+                            x: {
+                                ticks: {
+                                    autoSkip: false,
+                                    maxRotation: 45,
+                                    minRotation: 45
+                                },
+                                grid: {
+                                    display: false
+                                }
+                            },
+                            yAxes: [
+                                {
+                                    id: 'y-axis-1',
+                                    type: 'linear',
+                                    position: 'left',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Crore Data',
+                                        fontColor: 'rgba(54, 162, 235, 1)',
+                                    },
+                                    ticks: {
+                                        beginAtZero: true,
+                                        fontColor: 'rgba(54, 162, 235, 1)',
+                                        callback: function (value) {
+                                            return value / 10000000 + ' Crores';
+                                        }
+                                    },
+                                    grid: {
+                                        color: 'rgba(54, 162, 235, 0.2)'
+                                    }
+                                },
+                                {
+                                    id: 'y-axis-2',
+                                    type: 'linear',
+                                    position: 'right',
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Thousands Data',
+                                        fontColor: 'rgba(255, 99, 132, 1)',
+                                    },
+                                    ticks: {
+                                        beginAtZero: true,
+                                        fontColor: 'rgba(255, 99, 132, 1)',
+                                        callback: function (value) {
+                                            return value / 1000 + ' Thousands';
+                                        }
+                                    },
+                                    grid: {
+                                        color: 'rgba(255, 99, 132, 0.2)'
+                                    }
+                                }
+                            ]
+                        },
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        label += context.parsed.y;
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching Excel file:', error));       
+    </script>
+    <a class="white" href="#" target="_blank" style="float:right">
+<img style="border: 0pt none; width: 70px; height: 0px;" src="" alt="">
+<a class="black" href="" target="_blank" style="float:right"></a>
+<img style="border: 0pt none; width: 70px; height: 0px;" ></a>
+</br>
+    <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>  
+</div>
+</div>
+<script src="assets/vendors/js/vendor.bundle.base.js"></script>
+<script src="assets/vendors/js/vendor.bundle.addons.js"></script>
+<script src="assets/js/shared/off-canvas.js"></script>
+<script src="assets/js/shared/misc.js"></script>
+<script src="assets/js/demo_1/dashboard.js"></script>
+<script src="assets/js/shared/jquery.cookie.js" type="text/javascript"></script>
+<script src="script.js"></script>
+</div>
+</div>
+</div>
+</div>
+<a href="brdrextend.html"></a><br>
+  <div class="table" style="padding-top: 0px; padding-left: -249px;padding-right: 0px;margin-left: -119px;margin-top: -187px;margin-right: 0px;"></div>
+  <script>
+      let table = document.querySelector(".table");
+      (
+          async() => {
+              let workbook = XLSX.read(await (await fetch("./BR_DR.xlsx")).arrayBuffer());
+              console.log(workbook);
+              let worksheet = workbook.SheetNames;
+                   worksheet.forEach(name => {
+                  let html = XLSX.utils.sheet_to_html(workbook.Sheets[name]);
+                  table.innerHTML += `
+                  <h3>${name}</h3>${html}
+                  `;
+              })
+          }
+      )()
+      function printTable(){
+        window.print();
+      }
+  </script>
+</body>
+</body>
+</html>
